@@ -14,7 +14,6 @@ import com.learn.repository.EmployeeRepository;
 @RestController
 public class EmployeeApi {
 	
-	@Autowired
 	EmployeeRepository employeeRepository;
 	
 	@GetMapping("/getEmployeeList")
