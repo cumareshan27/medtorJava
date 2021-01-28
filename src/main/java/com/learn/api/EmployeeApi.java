@@ -1,5 +1,6 @@
 package com.learn.api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,26 @@ public class EmployeeApi {
 		} catch (Exception ex) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("{\"status\":\"Failure\"}");
 		}
+	}
+	
+	@GetMapping("/getEmployeeName")
+	public ResponseEntity<?> getEmployeeName() {
+		
+		List<Employee> empList = new ArrayList<Employee>();
+		
+		for (int i = 0; i < 10; i++) {
+			
+			Employee firstEmployee = new Employee();
+			firstEmployee.setEmployeeName("Kumar");
+			firstEmployee.setEmailId("email@gmail.com");
+			firstEmployee.setMobileNo("808080808");
+			
+			empList.add(firstEmployee);
+		}
+		
+		return ResponseEntity.status(HttpStatus.OK).body(empList);
+		
+		
 	}
 
 }
